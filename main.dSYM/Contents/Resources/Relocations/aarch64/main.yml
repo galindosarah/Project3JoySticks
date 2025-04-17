@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/CHESS101/CLionProjects/Project3JoySticks/main'
+relocations:     []
+...
