@@ -4,5 +4,11 @@
   "command": "/usr/bin/clang++ -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/Project3Joysticks.dir/main.cpp.o -c /Users/CHESS101/CLionProjects/Project3JoySticks/main.cpp",
   "file": "/Users/CHESS101/CLionProjects/Project3JoySticks/main.cpp",
   "output": "CMakeFiles/Project3Joysticks.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/CHESS101/CLionProjects/Project3JoySticks/build",
+  "command": "/usr/bin/clang++ -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/Project3Joysticks.dir/game.cpp.o -c /Users/CHESS101/CLionProjects/Project3JoySticks/game.cpp",
+  "file": "/Users/CHESS101/CLionProjects/Project3JoySticks/game.cpp",
+  "output": "CMakeFiles/Project3Joysticks.dir/game.cpp.o"
 }
 ]

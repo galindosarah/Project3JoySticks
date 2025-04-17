@@ -7,5 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 # Add source files
 add_executable(Project3Joysticks
     main.cpp
+    game.cpp
     # src/other.cpp
 )
