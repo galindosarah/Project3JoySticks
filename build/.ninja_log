@@ -1,3 +1,6 @@
 # ninja log v6
 0	376	1744928370010241595	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
 378	415	1744928370387953794	Project3Joysticks	a41abac25b13cf03
+4	518	1744929476182582908	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
+4	609	1744929476182860700	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+610	715	1744929476788527809	Project3Joysticks	9d6b547072676d3c
