@@ -1,2 +1,1 @@
-#include <game.h>
-#pragma once
+#include "game.h"
