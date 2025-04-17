@@ -1,5 +1,5 @@
 #include "game.h"
-
+//sarah smells
 game::game(string filePath) {
     ifstream file(filePath);  // Ensure the correct file path
     if (!file.is_open()) {
