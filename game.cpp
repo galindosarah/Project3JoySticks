@@ -19,13 +19,6 @@ game::game(string filePath) {
     }
 
     file.close();
-
-    for (size_t i = 1; i < min(data.size(), size_t(6)); i++) {
-        for (const auto &val : data[i]) {
-            cout << val << " | ";
-        }
-        cout << endl;
-    }
 }
 
 // Parse through single row of data and separate values
@@ -63,20 +56,40 @@ void game::parseData() {
             // Classify games based on number of players
             if(j == 29) {
                 if(row[j] == "1") {
-                    multiplayerTable["Single Player"].push_back(this->data[i][1]);
+                    vector<string> m = multiplayerTable["Single Player"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        multiplayerTable["Single Player"].push_back(row[1]);
+                    }
                 }else {
-                    multiplayerTable["Multiplayer"].push_back(this->data[i][1]);
+                    vector<string> m2 = multiplayerTable["Multiplayer"];
+                    auto it = find(m2.begin(), m2.end(), row[1]);
+                    if(it == m2.end()) {
+                        multiplayerTable["Multiplayer"].push_back(row[1]);
+                    }
                 }
             }
 
             // Classify games based on maturity rating
             if(j == 24 || j == 25 || j == 26) {
                 if(j == 24 && row[j] == "1") {
-                    maturityTable["Rated E"].push_back(this->data[i][1]);
+                    vector<string> m = maturityTable["Rated E"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        maturityTable["Rated E"].push_back(row[1]);
+                    }
                 }else if(j == 25 && row[j] == "1") {
-                    maturityTable["Rated T"].push_back(this->data[i][1]);
+                    vector<string> m = maturityTable["Rated T"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        maturityTable["Rated T"].push_back(row[1]);
+                    }
                 }else if(j == 26 && row[j] == "1") {
-                    maturityTable["Rated M"].push_back(this->data[i][1]);
+                    vector<string> m = maturityTable["Rated M"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        maturityTable["Rated M"].push_back(row[1]);
+                    }
                 }
             }
 
@@ -84,25 +97,65 @@ void game::parseData() {
             if(j == 22) {
                 int score = stoi(row[j]);
                 if(score > 90) {
-                    scoreTable["91-100"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["91-100"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["91-100"].push_back(row[1]);
+                    }
                 }else if(score > 80) {
-                    scoreTable["81-90"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["81-90"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["81-90"].push_back(row[1]);
+                    }
                 }else if(score > 70) {
-                    scoreTable["71-80"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["71-80"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["71-80"].push_back(row[1]);
+                    }
                 }else if(score > 60) {
-                    scoreTable["61-70"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["61-70"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["61-70"].push_back(this->data[i][1]);
+                    }
                 }else if(score > 50) {
-                    scoreTable["51-60"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["51-60"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["51-60"].push_back(this->data[i][1]);
+                    }
                 }else if(score > 40) {
-                    scoreTable["41-50"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["41-50"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["41-50"].push_back(this->data[i][1]);
+                    }
                 }else if(score > 30) {
-                    scoreTable["31-40"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["31-40"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["31-40"].push_back(this->data[i][1]);
+                    }
                 }else if(score > 20) {
-                    scoreTable["21-30"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["21-30"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["21-30"].push_back(this->data[i][1]);
+                    }
                 }else if(score > 10) {
-                    scoreTable["11-20"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["11-20"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["11-20"].push_back(this->data[i][1]);
+                    }
                 }else {
-                    scoreTable["00-10"].push_back(this->data[i][1]);
+                    vector<string> m = scoreTable["00-10"];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        scoreTable["00-10"].push_back(this->data[i][1]);
+                    }
                 }
             }
 
@@ -116,21 +169,16 @@ void game::parseData() {
                 while(getline(ss, genre, ',')) {
                     string space;
                     getline(ss, space, ' '); // Skip space after comma
-                    genreTable[genre].push_back(this->data[i][1]);
+                    vector<string> m = genreTable[genre];
+                    auto it = find(m.begin(), m.end(), row[1]);
+                    if(it == m.end()) {
+                        genreTable[genre].push_back(this->data[i][1]);
+                    }
                 }
             }
         }
     }
 
-    // for(const auto k : genreTable) {
-    //     cout << k.first << ": ";
-    //     for(const auto v : k.second) {
-    //         cout << v << ", ";
-    //     }
-    //     cout << endl;
-    //     cout << endl;
-    // }
-    // cout << genreTable.size() << endl;
 
 }
 
@@ -152,6 +200,7 @@ void game::heapify_down(vector<string>& gamesList, int size, int root){
 }
 
 void game::heapSort(vector<string>& gamesList){
+    //auto start = chrono::high_resolution_clock::now();
     int n = gamesList.size();
     for(int i = n / 2 - 1; i >= 0; i--){
         heapify_down(gamesList, n, i);
@@ -188,6 +237,7 @@ int game::partition(vector<string>& gamesList, int low, int high){
 }
 
 void game::quickSort(vector<string>& gamesList, int low, int high){
+
     if(low < high){
         int pivot = partition(gamesList, low, high);
         quickSort(gamesList, low, pivot - 1);
@@ -197,29 +247,141 @@ void game::quickSort(vector<string>& gamesList, int low, int high){
 
 vector<string> game::getGenre(string genre) {
     vector<string> genreList = genreTable[genre];
+    vector<string> genreList2 = genreTable[genre];
+
+    // Timer while calling heapSort
+    auto startHeap = chrono::steady_clock::now();
     heapSort(genreList);
+    auto endHeap = chrono::steady_clock::now();
+    auto durationHeap = chrono::duration_cast<chrono::microseconds>(endHeap - startHeap);
+
+    // Timer while calling quickSort
+    auto startQuick = chrono::steady_clock::now();
+    quickSort(genreList2, 0, genreList2.size() - 1);
+    auto endQuick = chrono::steady_clock::now();
+    auto durationQuick = chrono::duration_cast<chrono::microseconds>(endQuick - startQuick);
+
+    // Print out sorted list
     cout << genre << " Games: "  << endl;
     for(const auto n : genreList){
         cout << n << endl;
     }
+    cout << endl;
+    cout << "Heap Sort time: " << durationHeap.count() << " microseconds" << endl;
+    cout << "Quick sort time: " << durationQuick.count() << " microseconds" << endl;
     return genreList;
 }
 
 vector<string> game::getMaturity(string maturity) {
     vector<string> maturityList = maturityTable[maturity];
-    quickSort(maturityList, 0, maturityList.size() - 1);
+    vector<string> maturityList2 = maturityTable[maturity];
+
+    // Timer while calling heapSort
+    auto startHeap = chrono::steady_clock::now();
+    heapSort(maturityList);
+    auto endHeap = chrono::steady_clock::now();
+    auto durationHeap = chrono::duration_cast<chrono::microseconds>(endHeap - startHeap);
+
+    // Timer while calling quickSort
+    auto startQuick = chrono::steady_clock::now();
+    quickSort(maturityList2, 0, maturityList2.size() - 1);
+    auto endQuick = chrono::steady_clock::now();
+    auto durationQuick = chrono::duration_cast<chrono::microseconds>(endQuick - startQuick);
+
+    // Print out sorted list
     cout << maturity << " Games: "  << endl;
     for(const auto n : maturityList){
         cout << n << endl;
     }
+
+    cout << endl;
+    cout << "Heap Sort time: " << durationHeap.count() << " microseconds" << endl;
+    cout << "Quick sort time: " << durationQuick.count() << " microseconds" << endl;
+
     return maturityList;
 }
 
 vector<string> game::getConsole(string console) {
+    vector<string> consoleList = consoleTable[console];
+    vector<string> consoleList2 = consoleTable[console];
+
+    // Timer while calling heapSort
+    auto startHeap = chrono::steady_clock::now();
+    heapSort(consoleList);
+    auto endHeap = chrono::steady_clock::now();
+    auto durationHeap = chrono::duration_cast<chrono::microseconds>(endHeap - startHeap);
+
+    // Timer while calling quickSort
+    auto startQuick = chrono::steady_clock::now();
+    quickSort(consoleList2, 0, consoleList2.size() - 1);
+    auto endQuick = chrono::steady_clock::now();
+    auto durationQuick = chrono::duration_cast<chrono::microseconds>(endQuick - startQuick);
+
+    // Print out sorted list
+    cout << console << " Games: "  << endl;
+    for(const auto n : consoleList){
+        cout << n << endl;
+    }
+    cout << endl;
+    cout << "Heap Sort time: " << durationHeap.count() << " microseconds" << endl;
+    cout << "Quick sort time: " << durationQuick.count() << " microseconds" << endl;
+
+    return consoleList;
+
 }
 
 vector<string> game::getMultiplayer(string multiplayer) {
+    vector<string> multiplayerList = multiplayerTable[multiplayer];
+    vector<string> multiplayerList2 = multiplayerTable[multiplayer];
+
+    // Timer while calling heapSort
+    auto startHeap = chrono::steady_clock::now();
+    heapSort(multiplayerList);
+    auto endHeap = chrono::steady_clock::now();
+    auto durationHeap = chrono::duration_cast<chrono::microseconds>(endHeap - startHeap);
+
+    // Timer while calling quickSort
+    auto startQuick = chrono::steady_clock::now();
+    quickSort(multiplayerList2, 0, multiplayerList2.size() - 1);
+    auto endQuick = chrono::steady_clock::now();
+    auto durationQuick = chrono::duration_cast<chrono::microseconds>(endQuick - startQuick);
+
+    // Print out sorted list
+    cout << multiplayer << " Games: "  << endl;
+    for(const auto n : multiplayerList){
+        cout << n << endl;
+    }
+    cout << endl;
+    cout << "Heap Sort time: " << durationHeap.count() << " microseconds" << endl;
+    cout << "Quick sort time: " << durationQuick.count() << " microseconds" << endl;
+
+    return multiplayerList;
 }
 
 vector<string> game::getScore(string score) {
+    vector<string> scoreList = scoreTable[score];
+    vector<string> scoreList2 = scoreTable[score];
+
+    // Timer while calling heapSort
+    auto startHeap = chrono::steady_clock::now();
+    heapSort(scoreList);
+    auto endHeap = chrono::steady_clock::now();
+    auto durationHeap = chrono::duration_cast<chrono::microseconds>(endHeap - startHeap);
+
+    // Timer while calling quickSort
+    auto startQuick = chrono::steady_clock::now();
+    quickSort(scoreList2, 0, scoreList2.size() - 1);
+    auto endQuick = chrono::steady_clock::now();
+    auto durationQuick = chrono::duration_cast<chrono::microseconds>(endQuick - startQuick);
+
+    // Print out sorted list
+    cout << score << " Games: "  << endl;
+    for(const auto n : scoreList){
+        cout << n << endl;
+    }
+    cout << endl;
+    cout << "Heap Sort time: " << durationHeap.count() << " microseconds" << endl;
+    cout << "Quick sort time: " << durationQuick.count() << " microseconds" << endl;
+
+    return scoreList;
 }

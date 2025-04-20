@@ -7,6 +7,8 @@
 #include <chrono>
 #include <unordered_map>
 #include <vector>
+#include <iomanip>
+#include <algorithm>
 using namespace std;
 
 class game {
