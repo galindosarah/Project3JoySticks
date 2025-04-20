@@ -11,6 +11,8 @@ int main() {
     game table("../resources/Managerial_and_Decision_Economics_2013_Video_Games_Dataset.csv");
     table.parseData();
 
+    // table.getGenre("Strategy");
+    table.getMaturity("Rated E");
 
     return 0;
 }

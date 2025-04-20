@@ -1,6 +1,25 @@
 # ninja log v6
-0	376	1744928370010241595	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
-378	415	1744928370387953794	Project3Joysticks	a41abac25b13cf03
 4	518	1744929476182582908	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
 4	609	1744929476182860700	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
 610	715	1744929476788527809	Project3Joysticks	9d6b547072676d3c
+4	738	1745114947697441773	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+738	901	1745114948430996853	Project3Joysticks	9d6b547072676d3c
+21	661	1745117040511762801	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
+25	740	1745117040516855797	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+740	864	1745117041230832050	Project3Joysticks	9d6b547072676d3c
+6	661	1745117445393576904	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+662	770	1745117446049366381	Project3Joysticks	9d6b547072676d3c
+6	674	1745118115349914455	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+674	795	1745118116017899491	Project3Joysticks	9d6b547072676d3c
+4	383	1745118142414426973	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
+4	475	1745118142414757428	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+475	516	1745118142885404464	Project3Joysticks	9d6b547072676d3c
+6	452	1745118155525693548	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+453	491	1745118155972169464	Project3Joysticks	9d6b547072676d3c
+12	557	1745119001474286069	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
+13	639	1745119001474649649	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+639	761	1745119002101158761	Project3Joysticks	9d6b547072676d3c
+4	363	1745119012571788459	CMakeFiles/Project3Joysticks.dir/main.cpp.o	8df5f995e1b4f1ff
+363	423	1745119012930735693	Project3Joysticks	9d6b547072676d3c
+5	453	1745119116050745573	CMakeFiles/Project3Joysticks.dir/game.cpp.o	d036a89a25ffc53a
+453	491	1745119116498875349	Project3Joysticks	9d6b547072676d3c

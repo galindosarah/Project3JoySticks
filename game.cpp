@@ -122,23 +122,97 @@ void game::parseData() {
         }
     }
 
-    for(const auto k : genreTable) {
-        cout << k.first << ": ";
-        for(const auto v : k.second) {
-            cout << v << ", ";
-        }
-        cout << endl;
-        cout << endl;
-    }
-    cout << genreTable.size() << endl;
+    // for(const auto k : genreTable) {
+    //     cout << k.first << ": ";
+    //     for(const auto v : k.second) {
+    //         cout << v << ", ";
+    //     }
+    //     cout << endl;
+    //     cout << endl;
+    // }
+    // cout << genreTable.size() << endl;
 
+}
+
+void game::heapify_down(vector<string>& gamesList, int size, int root){
+    int max = root;
+    int left = 2 * root + 1;
+    int right = 2 * root + 2;
+
+    if(left < size && gamesList[left] > gamesList[max]){
+        max = left;
+    }
+    if(right < size && gamesList[right] > gamesList[max]){
+        max = right;
+    }
+    if(max != root){
+        swap(gamesList[root], gamesList[max]);
+        heapify_down(gamesList, size, max);
+    }
+}
+
+void game::heapSort(vector<string>& gamesList){
+    int n = gamesList.size();
+    for(int i = n / 2 - 1; i >= 0; i--){
+        heapify_down(gamesList, n, i);
+    }
+    for(int i = n - 1; i > 0; i--){
+        swap(gamesList[0], gamesList[i]);
+        heapify_down(gamesList, i, 0);
+    }
+}
+
+int game::partition(vector<string>& gamesList, int low, int high){
+    string pivot = gamesList[low];
+    int up = low, down = high;
+
+    while(up < down){
+        for(int i = up; i < high; i++){
+            if(gamesList[up] > pivot){
+                break;
+            }
+            up++;
+        }
+        for(int j = high; j > low; j--){
+            if(gamesList[down] < pivot){
+                break;
+            }
+            down--;
+        }
+        if(up < down){
+            swap(gamesList[up], gamesList[down]);
+        }
+    }
+    swap(gamesList[low], gamesList[down]);
+    return down;
+}
+
+void game::quickSort(vector<string>& gamesList, int low, int high){
+    if(low < high){
+        int pivot = partition(gamesList, low, high);
+        quickSort(gamesList, low, pivot - 1);
+        quickSort(gamesList, pivot + 1, high);
+    }
 }
 
 vector<string> game::getGenre(string genre) {
-
+    vector<string> genreList = genreTable[genre];
+    heapSort(genreList);
+    cout << genre << " Games: "  << endl;
+    for(const auto n : genreList){
+        cout << n << endl;
+    }
+    return genreList;
 }
 
 vector<string> game::getMaturity(string maturity) {
+    vector<string> maturityList = maturityTable[maturity];
+    quickSort(maturityList, 0, maturityList.size() - 1);
+    cout << maturity << " Games: "  << endl;
+    for(const auto n : maturityList){
+        cout << n << endl;
+    }
+    return maturityList;
 }
 
 vector<string> game::getConsole(string console) {

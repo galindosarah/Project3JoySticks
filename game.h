@@ -17,6 +17,8 @@ private:
     unordered_map<string, vector<string>> consoleTable; //key: console, value: list of games
     unordered_map<string, vector<string>> multiplayerTable; //key: single/multi, value: list of games
     unordered_map<string, vector<string>> scoreTable; //key: score range, value: list of games
+    void heapify_down(vector<string>& gamesList, int size, int root);
+    int partition(vector<string>& gamesList, int low, int high);
 public:
     game(string filePath);
     vector<string> parseLine(string line);
@@ -26,6 +28,8 @@ public:
     vector<string> getConsole(string console);
     vector<string> getMultiplayer(string multiplayer);
     vector<string> getScore(string score);
+    void heapSort(vector<string>& gamesList);
+    void quickSort(vector<string>& gamesList, int low, int high);
 
 };
 

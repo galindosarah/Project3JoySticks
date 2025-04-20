@@ -1,6 +1,13 @@
 {
     "cmake.generator": "Ninja",
     "cmake.sourceDirectory": "${workspaceFolder}",
-    "cmake.buildDirectory": "${workspaceFolder}/build"
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "files.associations": {
+      "unordered_map": "cpp",
+      "vector": "cpp",
+      "iostream": "cpp",
+      "iosfwd": "cpp",
+      "ostream": "cpp"
+    }
   }
   
