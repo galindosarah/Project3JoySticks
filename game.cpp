@@ -11,7 +11,7 @@ game::game(string filePath) {
     getline(file, line);
 
 
-    // Read file line by line
+    // Read file line by line and push into data table
     while (getline(file, line)) {
         stringstream ss(line);
         vector<string> row = parseLine(line);
@@ -19,6 +19,7 @@ game::game(string filePath) {
     }
 
     file.close();
+
     for (size_t i = 1; i < min(data.size(), size_t(6)); i++) {
         for (const auto &val : data[i]) {
             cout << val << " | ";
@@ -27,11 +28,13 @@ game::game(string filePath) {
     }
 }
 
+// Parse through single row of data and separate values
 vector<string> game::parseLine(string line) {
     vector<string> row;
     string value;
     bool insideQuotes = false;
 
+    // Separate based on comma but ignore commas within quotes
     for(const auto c : line) {
         if (c == '"') {
             insideQuotes = !insideQuotes;
@@ -46,15 +49,18 @@ vector<string> game::parseLine(string line) {
     return row;
 }
 
+// Go through data table and
 void game::parseData() {
     for(int i = 0; i < this->data.size(); i++) {
         vector<string> row = this->data[i];
         for(int j = 0; j < row.size(); j++) {
-            //Sorting based on console
+
+            // Classify games based on console
             if(j == 0) {
                 consoleTable[this->data[i][0]].push_back(this->data[i][1]);
             }
-            //Sorting based on number of players
+
+            // Classify games based on number of players
             if(j == 29) {
                 if(row[j] == "1") {
                     multiplayerTable["Single Player"].push_back(this->data[i][1]);
@@ -62,7 +68,8 @@ void game::parseData() {
                     multiplayerTable["Multiplayer"].push_back(this->data[i][1]);
                 }
             }
-            //Sorting based on maturity rating
+
+            // Classify games based on maturity rating
             if(j == 24 || j == 25 || j == 26) {
                 if(j == 24 && row[j] == "1") {
                     maturityTable["Rated E"].push_back(this->data[i][1]);
@@ -72,7 +79,8 @@ void game::parseData() {
                     maturityTable["Rated M"].push_back(this->data[i][1]);
                 }
             }
-            //Sorting based on review score
+
+            // Classify games based on review score
             if(j == 22) {
                 int score = stoi(row[j]);
                 if(score > 90) {
@@ -97,17 +105,24 @@ void game::parseData() {
                     scoreTable["00-10"].push_back(this->data[i][1]);
                 }
             }
+
+            // Classify games based on genre
             if(j == 17) {
                 string genres = row[j];
+                stringstream ss(genres);
                 string genre;
 
-                // for(const auto c : genres) {
-                //     if()
-                // }
+                // Separate based on comma for multi-genre games
+                while(getline(ss, genre, ',')) {
+                    string space;
+                    getline(ss, space, ' '); // Skip space after comma
+                    genreTable[genre].push_back(this->data[i][1]);
+                }
             }
         }
     }
-    for(const auto k : scoreTable) {
+
+    for(const auto k : genreTable) {
         cout << k.first << ": ";
         for(const auto v : k.second) {
             cout << v << ", ";
@@ -115,11 +130,12 @@ void game::parseData() {
         cout << endl;
         cout << endl;
     }
-    cout << scoreTable.size() << endl;
+    cout << genreTable.size() << endl;
 
 }
 
 vector<string> game::getGenre(string genre) {
+
 }
 
 vector<string> game::getMaturity(string maturity) {
