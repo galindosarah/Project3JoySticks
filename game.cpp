@@ -385,3 +385,14 @@ vector<string> game::getScore(string score) {
 
     return scoreList;
 }
+
+void game::mainMenu() {
+    cout << "--- Welcome to JoyStick Stats! ---\n";
+    cout << "Please select the category you want to search:\n";
+    cout << "1. Genre\n";
+    cout << "2. Maturity Rating\n";
+    cout << "3. Gaming Console\n";
+    cout << "4. Multiplayer\n";
+    cout << "5. Review Score\n";
+    cout << "Input:  ";
+}

@@ -32,7 +32,8 @@ public:
     vector<string> getScore(string score);
     void heapSort(vector<string>& gamesList);
     void quickSort(vector<string>& gamesList, int low, int high);
-
+    //Menu
+    void mainMenu();
 };
 
 
