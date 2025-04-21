@@ -7,42 +7,134 @@
 using namespace std;
 
 int main() {
-    int choice;
+    int choice = -1;
     game table("../resources/Managerial_and_Decision_Economics_2013_Video_Games_Dataset.csv");
     table.parseData();
+    while (choice != 0) {
+        table.mainMenu();
+        cin >> choice;
 
-    table.mainMenu();
-    cin >> choice;
+        switch (choice) {
+            case 1: {
+                int genreChoice;
+                string genreName;
+                cout << "==Please Enter a Genre==\n";
+                cout << "1. Role-Playing\n";
+                cout << "2. Strategy\n";
+                cout << "3. Action\n";
+                cout << "4. Educational\n";
+                cout << "5. Racing/Driving\n";
+                cout << "6. Simulation\n";
+                cout << "7. Sports\n";
+                cout << "8. Adventure\n";
+                cout << "Input:" << " ";
+                cin >> genreChoice;
+                if (genreChoice == 1){
+                    genreName = "Role-Playing (RPG)";
+                } else if (genreChoice == 2){
+                    genreName = "Strategy";
+                } else if (genreChoice == 3){
+                    genreName = "Action";
+                } else if (genreChoice == 4){
+                    genreName = "Educational";
+                } else if (genreChoice == 5){
+                    genreName = "Racing / Driving";
+                } else if (genreChoice == 6){
+                    genreName = "Simulation";
+                } else if (genreChoice == 7){
+                    genreName = "Sports";
+                } else if (genreChoice == 8){
+                    genreName = "Adventure";
+                }
+                else{
+                    break;
+                }
+                table.getGenre(genreName);
+                continue;
+            }
+            case 2: {
+                int maturityChoice;
+                string mRating;
+                cout << "==Please Enter a Maturity Rating==\n";
+                cout << "1. Everyone\n";
+                cout << "2. Teen\n";
+                cout << "3. Mature\n";
+                cout << "Input: ";
+                cin >> maturityChoice;
+                if (maturityChoice == 1){
+                    mRating = "Rated E";
+                } else if (maturityChoice == 2){
+                    mRating = "Rated T";
+                } else if (maturityChoice == 3){
+                    mRating = "Rated M";
+                }
+                else{
+                    break;
+                }
+                table.getMaturity(mRating);
+                continue;
+            }
+            case 3: {
+                int consoleChoice;
+                string consoleName;
+                cout << "==Please Enter a Console Name==\n";
+                cout << "1. Nintendo DS\n";
+                cout << "2. Sony PSP\n";
+                cout << "3. Xbox 360\n";
+                cout << "4. Nintendo Wii\n";
+                cout << "5. PlayStation 3\n";
+                cout << "Input:" << " ";
+                cin >> consoleChoice;
+                if (consoleChoice == 1) {
+                    consoleName = "Nintendo DS";
+                } else if (consoleChoice == 2) {
+                    consoleName = "Sony PSP";
+                } else if (consoleChoice == 3) {
+                    consoleName = "X360";
+                } else if (consoleChoice == 4) {
+                    consoleName = "Nintendo Wii";
+                } else if (consoleChoice == 5) {
+                    consoleName = "PlayStation 3";
+                }
 
-    switch (choice){
-        case 3:
-            int consoleChoice;
-            string consoleName;
-            cout << "==Please Enter a Console Name==\n";
-            cout << "1. Nintendo DS\n";
-            cout << "2. Sony PSP\n";
-            cout << "3. Xbox 360\n";
-            cout << "4. Nintendo Wii\n";
-            cout << "5. PlayStation 3\n";
-            cin >> consoleChoice;
-            if (consoleChoice == 1){
-                consoleName = "Nintendo DS";
+                table.getConsole(consoleName);
+                break;
             }
-            else if (consoleChoice == 2){
-                consoleName = "Sony PSP";
+            case 4: {
+                int onlineChoice;
+                string online;
+                cout << "==Single Player or Multiplayer Games?==\n";
+                cout << "1. Single Player\n";
+                cout << "2. Multiplayer\n";
+                cout << "Input: ";
+                cin >> onlineChoice;
+                if (onlineChoice == 1){
+                    online = "Single Player";
+                }
+                else if (onlineChoice == 2){
+                    online = "Multiplayer";
+                }
+                table.getMultiplayer(online);
+                continue;
             }
-            else if (consoleChoice == 3){
-                consoleName = "X360";
-            }
-            else if (consoleChoice == 4){
-                consoleName = "Nintendo Wii";
-            }
-            else if (consoleChoice == 5){
-                consoleName = "PlayStation 3";
+            case 5: {
+                int Range;
+                string scoreRange;
+                cout << "==Please Select from the Range of Scores Name==\n";
+                cout << "1. Nintendo DS\n";
+                cout << "2. Sony PSP\n";
+                cout << "3. Xbox 360\n";
+                cout << "4. Nintendo Wii\n";
+                cout << "5. PlayStation 3\n";
+                cout << "Input:" << " ";
+                continue;
             }
 
-            table.getConsole(consoleName);
+        }
     }
+
+
+
 
 
     return 0;
