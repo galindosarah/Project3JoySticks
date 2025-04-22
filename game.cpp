@@ -10,7 +10,6 @@ game::game(string filePath) {
     string line;
     getline(file, line);
 
-
     // Read file line by line and push into data table
     while (getline(file, line)) {
         stringstream ss(line);
@@ -28,6 +27,7 @@ vector<string> game::parseLine(string line) {
     bool insideQuotes = false;
 
     // Separate based on comma but ignore commas within quotes
+    // Code based on https://stackoverflow.com/questions/48085842/how-do-i-parse-a-csv-with-commas-embedded-in-quoted-fields
     for(const auto c : line) {
         if (c == '"') {
             insideQuotes = !insideQuotes;
@@ -42,7 +42,7 @@ vector<string> game::parseLine(string line) {
     return row;
 }
 
-// Go through data table and
+// Go through data table and organize into tables and specific categories
 void game::parseData() {
     for(int i = 0; i < this->data.size(); i++) {
         vector<string> row = this->data[i];
@@ -182,7 +182,7 @@ void game::parseData() {
 
 }
 
-// Helper funciton for heapSort function
+// Helper function for heapSort function
 void game::heapify_down(vector<string>& gamesList, int size, int root){
     int max = root;
     int left = 2 * root + 1;
@@ -200,9 +200,8 @@ void game::heapify_down(vector<string>& gamesList, int size, int root){
     }
 }
 
-// Code based on  video solution to Edugator questions in Module 8
+// Code based on video solution to Edugator questions in Module 8
 void game::heapSort(vector<string>& gamesList){
-    //auto start = chrono::high_resolution_clock::now();
     int n = gamesList.size();
     for(int i = n / 2 - 1; i >= 0; i--){
         heapify_down(gamesList, n, i);
@@ -213,7 +212,7 @@ void game::heapSort(vector<string>& gamesList){
     }
 }
 
-// Helper funciton for quickSort function
+// Helper function for quickSort function
 int game::partition(vector<string>& gamesList, int low, int high){
     string pivot = gamesList[low];
     int up = low, down = high;
@@ -239,7 +238,7 @@ int game::partition(vector<string>& gamesList, int low, int high){
     return down;
 }
 
-// Code based on  video solution to Edugator questions in Module 8
+// Code based on video solution to Edugator questions in Module 8
 void game::quickSort(vector<string>& gamesList, int low, int high){
 
     if(low < high){
@@ -249,6 +248,7 @@ void game::quickSort(vector<string>& gamesList, int low, int high){
     }
 }
 
+// Return list of games for specified genre
 vector<string> game::getGenre(string genre) {
     vector<string> genreList = genreTable[genre];
     vector<string> genreList2 = genreTable[genre];
@@ -276,6 +276,7 @@ vector<string> game::getGenre(string genre) {
     return genreList;
 }
 
+// Return list of games for specified maturity
 vector<string> game::getMaturity(string maturity) {
     vector<string> maturityList = maturityTable[maturity];
     vector<string> maturityList2 = maturityTable[maturity];
@@ -305,6 +306,7 @@ vector<string> game::getMaturity(string maturity) {
     return maturityList;
 }
 
+// Return list of games for specified console
 vector<string> game::getConsole(string console) {
     vector<string> consoleList = consoleTable[console];
     vector<string> consoleList2 = consoleTable[console];
@@ -334,6 +336,7 @@ vector<string> game::getConsole(string console) {
 
 }
 
+// Return list of games for specified player mode
 vector<string> game::getMultiplayer(string multiplayer) {
     vector<string> multiplayerList = multiplayerTable[multiplayer];
     vector<string> multiplayerList2 = multiplayerTable[multiplayer];
@@ -362,6 +365,7 @@ vector<string> game::getMultiplayer(string multiplayer) {
     return multiplayerList;
 }
 
+// Return list of games for specified review score
 vector<string> game::getScore(string score) {
     vector<string> scoreList = scoreTable[score];
     vector<string> scoreList2 = scoreTable[score];

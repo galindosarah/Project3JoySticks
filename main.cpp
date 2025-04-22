@@ -21,6 +21,7 @@ int main() {
         cout << endl;
 
         switch (choice) {
+            // Search by genre
             case 1: {
                 int genreChoice;
                 string genreName;
@@ -60,6 +61,7 @@ int main() {
                 cout << "-----------------------------------" << endl;
                 continue;
             }
+            // Search by maturity rating
             case 2: {
                 int maturityChoice;
                 string mRating;
@@ -84,6 +86,7 @@ int main() {
                 cout << "-----------------------------------" << endl;
                 continue;
             }
+            // Search by console
             case 3: {
                 int consoleChoice;
                 string consoleName;
@@ -114,6 +117,7 @@ int main() {
                 cout << "-----------------------------------" << endl;
                 break;
             }
+            // Search by mode
             case 4: {
                 int onlineChoice;
                 string online;
@@ -135,6 +139,7 @@ int main() {
                 cout << "-----------------------------------" << endl;
                 continue;
             }
+            // Search by review score
             case 5: {
                 int Range;
                 string scoreRange;
@@ -190,6 +195,7 @@ int main() {
                 cout << "-----------------------------------" << endl;
                 continue;
             }
+            // Exit
             case 6: {
                 cout << "Thanks for using JoyStick Stats! Happy gaming!" << endl;
                 return 0;
