@@ -1,5 +1,5 @@
 #include "game.h"
-//sarah smells
+
 game::game(string filePath) {
     ifstream file(filePath);  // Ensure the correct file path
     if (!file.is_open()) {
@@ -182,6 +182,7 @@ void game::parseData() {
 
 }
 
+// Helper funciton for heapSort function
 void game::heapify_down(vector<string>& gamesList, int size, int root){
     int max = root;
     int left = 2 * root + 1;
@@ -199,6 +200,7 @@ void game::heapify_down(vector<string>& gamesList, int size, int root){
     }
 }
 
+// Code based on  video solution to Edugator questions in Module 8
 void game::heapSort(vector<string>& gamesList){
     //auto start = chrono::high_resolution_clock::now();
     int n = gamesList.size();
@@ -211,6 +213,7 @@ void game::heapSort(vector<string>& gamesList){
     }
 }
 
+// Helper funciton for quickSort function
 int game::partition(vector<string>& gamesList, int low, int high){
     string pivot = gamesList[low];
     int up = low, down = high;
@@ -236,6 +239,7 @@ int game::partition(vector<string>& gamesList, int low, int high){
     return down;
 }
 
+// Code based on  video solution to Edugator questions in Module 8
 void game::quickSort(vector<string>& gamesList, int low, int high){
 
     if(low < high){
@@ -387,7 +391,6 @@ vector<string> game::getScore(string score) {
 }
 
 void game::mainMenu() {
-    // cout << "--- Welcome to JoyStick Stats! ---\n";
     cout << "Please select the category you want to search:\n";
     cout << "1. Genre\n";
     cout << "2. Maturity Rating\n";

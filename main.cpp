@@ -8,8 +8,12 @@ using namespace std;
 
 int main() {
     int choice = -1;
+
+    // Load in the dataset from resources folder
     game table("../resources/Managerial_and_Decision_Economics_2013_Video_Games_Dataset.csv");
     table.parseData();
+
+    // First iteration of running the program
     cout << "--- Welcome to JoyStick Stats! ---\n";
     while (choice != 0) {
         table.mainMenu();
