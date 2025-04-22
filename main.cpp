@@ -120,13 +120,50 @@ int main() {
             case 5: {
                 int Range;
                 string scoreRange;
-                cout << "==Please Select from the Range of Scores Name==\n";
-                cout << "1. Nintendo DS\n";
-                cout << "2. Sony PSP\n";
-                cout << "3. Xbox 360\n";
-                cout << "4. Nintendo Wii\n";
-                cout << "5. PlayStation 3\n";
-                cout << "Input:" << " ";
+                cout << "== Please Select a Score Range ==\n";
+                cout << "1. 0 - 10\n";
+                cout << "2. 11 - 20\n";
+                cout << "3. 21 - 30\n";
+                cout << "4. 31 - 40\n";
+                cout << "5. 41 - 50\n";
+                cout << "6. 51 - 60\n";
+                cout << "7. 61 - 70\n";
+                cout << "8. 71 - 80\n";
+                cout << "9. 81 - 90\n";
+                cout << "10. 91 - 100\n";
+                cout << "Input: ";
+                cin >> Range;
+                if (Range == 1) {
+                    scoreRange = "00-10";
+                }
+                else if (Range == 2) {
+                    scoreRange = "11-20";
+                }
+                else if (Range == 3) {
+                    scoreRange = "21-30";
+                }
+                else if (Range == 4) {
+                    scoreRange = "31-40";
+                }
+                else if (Range == 5) {
+                    scoreRange = "41-50";
+                }
+                else if (Range == 6) {
+                    scoreRange = "51-60";
+                }
+                else if (Range == 7) {
+                    scoreRange = "61-70";
+                }
+                else if (Range == 8) {
+                    scoreRange = "71-80";
+                }
+                else if (Range == 9) {
+                    scoreRange = "81-90";
+                }
+                else if (Range == 10) {
+                    scoreRange = "91-100";
+                }
+                table.getScore(scoreRange);
                 continue;
             }
 
