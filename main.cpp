@@ -10,9 +10,11 @@ int main() {
     int choice = -1;
     game table("../resources/Managerial_and_Decision_Economics_2013_Video_Games_Dataset.csv");
     table.parseData();
+    cout << "--- Welcome to JoyStick Stats! ---\n";
     while (choice != 0) {
         table.mainMenu();
         cin >> choice;
+        cout << endl;
 
         switch (choice) {
             case 1: {
@@ -29,6 +31,7 @@ int main() {
                 cout << "8. Adventure\n";
                 cout << "Input:" << " ";
                 cin >> genreChoice;
+                cout << endl;
                 if (genreChoice == 1){
                     genreName = "Role-Playing (RPG)";
                 } else if (genreChoice == 2){
@@ -50,6 +53,7 @@ int main() {
                     break;
                 }
                 table.getGenre(genreName);
+                cout << "-----------------------------------" << endl;
                 continue;
             }
             case 2: {
@@ -61,6 +65,7 @@ int main() {
                 cout << "3. Mature\n";
                 cout << "Input: ";
                 cin >> maturityChoice;
+                cout << endl;
                 if (maturityChoice == 1){
                     mRating = "Rated E";
                 } else if (maturityChoice == 2){
@@ -72,6 +77,7 @@ int main() {
                     break;
                 }
                 table.getMaturity(mRating);
+                cout << "-----------------------------------" << endl;
                 continue;
             }
             case 3: {
@@ -85,6 +91,7 @@ int main() {
                 cout << "5. PlayStation 3\n";
                 cout << "Input:" << " ";
                 cin >> consoleChoice;
+                cout << endl;
                 if (consoleChoice == 1) {
                     consoleName = "Nintendo DS";
                 } else if (consoleChoice == 2) {
@@ -95,9 +102,12 @@ int main() {
                     consoleName = "Nintendo Wii";
                 } else if (consoleChoice == 5) {
                     consoleName = "PlayStation 3";
+                } else{
+                    break;
                 }
 
                 table.getConsole(consoleName);
+                cout << "-----------------------------------" << endl;
                 break;
             }
             case 4: {
@@ -108,13 +118,17 @@ int main() {
                 cout << "2. Multiplayer\n";
                 cout << "Input: ";
                 cin >> onlineChoice;
+                cout << endl;
                 if (onlineChoice == 1){
                     online = "Single Player";
                 }
                 else if (onlineChoice == 2){
                     online = "Multiplayer";
+                } else {
+                    break;
                 }
                 table.getMultiplayer(online);
+                cout << "-----------------------------------" << endl;
                 continue;
             }
             case 5: {
@@ -133,8 +147,11 @@ int main() {
                 cout << "10. 91 - 100\n";
                 cout << "Input: ";
                 cin >> Range;
+                cout << endl;
                 if (Range == 1) {
-                    scoreRange = "00-10";
+                    cout << "There are no current games with a score from 0-10." << endl;
+                    cout << "--------------------------------------------------" << endl;
+                    break;
                 }
                 else if (Range == 2) {
                     scoreRange = "11-20";
@@ -162,17 +179,20 @@ int main() {
                 }
                 else if (Range == 10) {
                     scoreRange = "91-100";
+                } else {
+                    break;
                 }
                 table.getScore(scoreRange);
+                cout << "-----------------------------------" << endl;
                 continue;
+            }
+            case 6: {
+                cout << "Thanks for using JoyStick Stats! Happy gaming!" << endl;
+                return 0;
             }
 
         }
     }
-
-
-
-
 
     return 0;
 }
