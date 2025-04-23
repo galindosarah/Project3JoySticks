@@ -1,5 +1,5 @@
 <H1> COP3530 Project 3 - JoyStick Stats </h1>
-These are the instructions on how to navigate our program, JoyStick Stats! Our goal is to provide a list of video games based on desired traits to help users find new games they might enjoy. 
+Below is a quick overview on how to navigate our program, JoyStick Stats! Our goal is to provide a list of video games based on desired traits to help users find new games they might enjoy. 
 
 <h2> Main Menu </h2>
 Our menu provides users with 6 different options they can choose from.
@@ -61,6 +61,9 @@ All of the video games found in our program were scored by the general public ba
 
 <h3> Option 6: Exit </h3>
 As our final option, if users are satisified with their lists of video games and have found their next play, they can exit our program by typing <b><q>6</q></b> into the command-line. This prompts a goodbye message before completely ending the program.
+
+<h3> Unlisted Option </h3>
+If at any point users accidentally input an option that is unavailable, the program will prompt users to start over from the main menu to help users find the correct criteria they are looking for.
 
 <h2> Final Remarks </h2>
 We hope you enjoy our program and find your next favorite game! 
