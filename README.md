@@ -59,6 +59,7 @@ All of the video games found in our program were scored by the general public ba
 9. 81 - 90
 10. 91 - 100
 
+If users are looking for a game that is within the <b>0 - 10 range</b>, they will be met with a message informing them that there are no video games that meet the desired criteria at this time.
 <h3> Option 6: Exit </h3>
 As our final option, if users are satisified with their lists of video games and have found their next play, they can exit our program by typing <b><q>6</q></b> into the command-line. This prompts a goodbye message before completely ending the program.
 
